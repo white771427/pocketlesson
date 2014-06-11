@@ -20,7 +20,7 @@
 	</div>
 </div>
 
-<!--  test す3-->
+<!--  test す-->
 <div class="container"
 	align="center">
 
