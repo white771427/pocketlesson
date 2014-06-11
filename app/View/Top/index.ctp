@@ -24,6 +24,7 @@
 <div class="container"
 	align="center">
 
+
 	<!--<h1>Bootstrap starter template2</h1>-->
 
 	<div class="row" align="center">
