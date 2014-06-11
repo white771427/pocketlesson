@@ -20,9 +20,10 @@
 	</div>
 </div>
 
-<!--  test す-->
+<!--  test す2 -->
 <div class="container"
 	align="center">
+
 
 
 	<!--<h1>Bootstrap starter template2</h1>-->
