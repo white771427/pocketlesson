@@ -71,7 +71,6 @@
 
 		?>
 
-
 		<div class="thumb col-lg-3 col-md-3 col-sm-4 col-xs-6">
 			<div class="thumbnail">
 				<!--  <img data-src="holder.js/300x200" alt="...">-->
