@@ -20,7 +20,7 @@
 	</div>
 </div>
 
-<!--  test す-->
+<!--  test shiyouse-->
 <div class="container"
 	align="center">
 
