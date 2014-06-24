@@ -18,7 +18,7 @@ class LessonsController extends AppController{
 
 
 		//認証不要のページの指定
-		$this->Auth->allow('index','add');
+		$this->Auth->allow('index','add','search');
 		//$this->Auth->allow('search');
 	}
 

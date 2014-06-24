@@ -6,6 +6,8 @@ class UsersController extends AppController{
 	public $name ='Users';
 	public $uses=array('User');
 
+	public static $addLessonLogin = 0;
+	public static $addLessonMessage = "講座の作成にはユーザーの作成をしてログインしてください";
 
 	public function beforeFilter(){
 		//親クラスのbeforeFilterの読み込み
@@ -15,10 +17,22 @@ class UsersController extends AppController{
 
 
 		//認証不要のページの指定
-		$this->Auth->allow('login','signup','active');
+		$this->Auth->allow('index','login','signup','active');
 
 
 	}
+
+	public function index($messageType=null){
+		$message=null;
+		if($messageType==UsersController::$addLessonLogin){
+			$message= UsersController::$addLessonMessage;
+		}
+
+		$this->set('message',$message);
+
+	}
+
+
 
 	public function login(){
 
@@ -115,6 +129,7 @@ class UsersController extends AppController{
 	public function logout(){
 		$this->redirect($this->Auth->logout());
 	}
+
 
 }
 

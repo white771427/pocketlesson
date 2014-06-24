@@ -31,6 +31,11 @@ class MyLessonsController extends AppController{
 		//Debugger::dump($this->LessonUsers->find('count',array('conditions'=>array('user_id'=>70))));
 		//debug($this->LessonUsers->find('count',array('conditions'=>array('user_id'=>70))));
 
+		//ログインしているか取得
+		if ($auth->loggedIn()){
+
+		}
+
 		$learnLessonCount = $this->LessonUsers->find('count',array('conditions'=>array('user_id'=>70)));
 
 		$teachLessonCount=$this->Lesson->find('count',array('condition'=>array('user_id'=>70)));

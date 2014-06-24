@@ -15,6 +15,8 @@
 				<h1>PocketLesson</h1>
 				<!--  <small>Subtext for header</small>-->
 				<p class="lead">いつでもどこでも気軽に3分レッスン</p>
+				<p class="lead">年配の学習や趣味を見つける</p>
+
 			</div>
 		</div>
 	</div>
@@ -42,9 +44,11 @@
 			<h3>講座を作成する</h3>
 			<p>是非あなたの知識をポケットレッスンに登録してください</p>
 			<p>
-
+				<?php if($auth->loggedIn()): ?>
 				<?php echo $this->Html->link('講座作成 &raquo;',array('controller'=>'MyLessons','action'=>'index'),array('escape'=>false,'class' => 'btn btn-default','role' => 'button')); ?>
-
+				<?php else:?>
+				<?php echo $this->Html->link('講座作成 &raquo;',array('controller'=>'Users','action'=>'index/0'),array('escape'=>false,'class' => 'btn btn-default','role' => 'button')); ?>
+				<?php endif ?>
 			</p>
 		</div>
 
