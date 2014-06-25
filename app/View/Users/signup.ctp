@@ -7,7 +7,7 @@
 
 					<?php echo $this->Form->create('User',array('type'=>'post','url'=>'signup')); ?>
 
-					<?php echo $this->Form->input('username',array('class'=>'form-control')); ?>
+					<?php echo $this->Form->input('username',array('class'=>'form-control','label'=>'メールアドレス', 'placeholder'=>'メールアドレスを入力してください')); ?>
 
 					<span class="input-group-btn"> <?php echo $this->form->submit('送信',array('class'=>'btn btn-default')); ?>
 					</span>
