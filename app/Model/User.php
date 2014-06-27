@@ -24,10 +24,28 @@ class User extends AppModel {
 			'password'=> array(
 					'notEmpty'=>array(
 							'rule'=>array('notEmpty'),
-							'message' =>'パスワードを入力してください',
-					)
+							'message' =>'パスワードを入力してください'
+					),
+					'match' => array(
+							'rule' => array( 'confirmPassword', 'password', 'confirmPassword'),
+							'message' => 'バスワードと確認用パスワードが一致しません'
+					),
 			),
+
+
 	);
+
+
+	public function confirmPassword($password,$confirmPassword){
+
+	if ($password == $confirmPassword) {
+          // パスワードハッシュ化
+          $this->request->data['User']['password'] = Security::hash( $plain, 'sha512', true);
+          return true;
+        }
+	}
+
+
 
 	public function getActivationHash() {
 		//$a = Security::hash(localtime(time()),'md5',true);
@@ -44,4 +62,5 @@ class User extends AppModel {
 		//return Security::hash( $this->field('modified'), 'md5', true);
 		return Security::hash(localtime(time()),'md5',true);
 	}
+
 }

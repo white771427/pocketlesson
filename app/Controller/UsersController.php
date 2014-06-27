@@ -7,7 +7,7 @@ class UsersController extends AppController{
 	public $uses=array('User');
 
 	public static $addLessonLogin = 0;
-	public static $addLessonMessage = "講座の作成にはユーザーの作成をしてログインしてください";
+	//public static $addLessonMessage = "講座の作成にはユーザーの作成をしてログインしてください";
 
 	public function beforeFilter(){
 		//親クラスのbeforeFilterの読み込み
@@ -22,13 +22,7 @@ class UsersController extends AppController{
 
 	}
 
-	public function index($messageType=null){
-		$message=null;
-		if($messageType==UsersController::$addLessonLogin){
-			$message= UsersController::$addLessonMessage;
-		}
-
-		$this->set('message',$message);
+	public function index(){
 
 	}
 
@@ -53,6 +47,7 @@ class UsersController extends AppController{
 
 	public function signup(){
 
+		//TODO メールのアドレスを変更する事
 		if(!empty($this->request->data)){
 
 			if($this->User->save($this->request->data)){
@@ -71,13 +66,18 @@ class UsersController extends AppController{
 
 				$email->send($url);
 
-				$this->Session->setFlash("メールを送信しました。送信されたメールから本登録を行ってください");
+				//フォワード
+				$this->setAction("completionMailSend");
 
 			}
 		}
 
 	}
 
+	public function completionMailSend(){
+		//$this->Session->setFlash("メールを送信しました。送信されたメールから本登録を行ってください");
+
+	}
 
 	public function edit($user_id=null){
 
@@ -99,7 +99,7 @@ class UsersController extends AppController{
 		$this->User->id=$userId;
 
 		if($this->User->exists() && $this->User->getActivationHash()==$inHash){
-			$this->Session->setFlash('メールの確認がとれました。本登録を行ってください');
+
 			$this->setAction('add',$userId);
 
 		}else{

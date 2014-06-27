@@ -47,7 +47,7 @@
 				<?php if($auth->loggedIn()): ?>
 				<?php echo $this->Html->link('講座作成 &raquo;',array('controller'=>'MyLessons','action'=>'index'),array('escape'=>false,'class' => 'btn btn-default','role' => 'button')); ?>
 				<?php else:?>
-				<?php echo $this->Html->link('講座作成 &raquo;',array('controller'=>'Users','action'=>'index/0'),array('escape'=>false,'class' => 'btn btn-default','role' => 'button')); ?>
+				<?php echo $this->Html->link('講座作成 &raquo;',array('controller'=>'Users','action'=>'index'),array('escape'=>false,'class' => 'btn btn-default','role' => 'button')); ?>
 				<?php endif ?>
 			</p>
 		</div>

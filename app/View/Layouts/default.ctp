@@ -41,7 +41,7 @@ body {
 
 
 <script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 <?php echo $this->Html->script('bootstrap.min'); ?>
 <?php echo $this->Html->script('masonry.pkgd.min'); ?>
@@ -129,12 +129,12 @@ echo $this->fetch('script');
 				<ul class="nav navbar-nav navbar-right">
 					<!--<li><a href="http://builtwithbootstrap.com/" target="_blank">ログイン</a></li>-->
 					<?php if ($auth->loggedIn()) : ?>
-					<li><a href="/pocketLesson/mypages" >マイページ</a></li>
+					<li><a href="/pocketLesson/mypages">マイページ</a></li>
 					<!-- <li><?php echo htmlspecialchars($auth->user('username')); ?></li>-->
-					<li><a href="/pocketLesson/users/logout" >ログアウト</a></li>
+					<li><a href="/pocketLesson/users/logout">ログアウト</a></li>
 					<?php else:?>
-						<li><a href="/pocketLesson/users/login" >ログイン</a></li>
-						<li><a href="/pocketLesson/users/signup" >新規登録</a></li>
+					<li><a href="/pocketLesson/users/login">ログイン</a></li>
+					<li><a href="/pocketLesson/users/signup">新規登録</a></li>
 					<?php endif ?>
 
 
@@ -147,10 +147,11 @@ echo $this->fetch('script');
 	</div>
 
 	<div id="content">
+		<div class="container">
+			<?php echo $this->Session->flash(); ?>
 
-		<?php echo $this->Session->flash(); ?>
-		<?php echo $this->fetch('content'); ?>
-
+			<?php echo $this->fetch('content'); ?>
+		</div>
 		<hr>
 
 	</div>
