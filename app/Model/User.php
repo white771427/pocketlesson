@@ -26,24 +26,52 @@ class User extends AppModel {
 							'rule'=>array('notEmpty'),
 							'message' =>'パスワードを入力してください'
 					),
-					'match' => array(
-							'rule' => array( 'confirmPassword', 'password', 'confirmPassword'),
-							'message' => 'バスワードと確認用パスワードが一致しません'
-					),
+// 					'match' => array(
+// 							'rule' => array( 'confirmPassword', 'password', 'confirmPassword'),
+// 							'message' => 'バスワードと確認用パスワードが一致しません'
+// 					),
 			),
-
+			'pass' => array(
+					// パスワード・確認パスワードの一致
+					'match' => array(
+							'rule' => array( 'compareValue','pass_confirm'),
+							'message' => 'バスワードと確認用パスワードが一致しません。もう一度入力してください'
+					),
+			)
 
 	);
 
 
-	public function confirmPassword($password,$confirmPassword){
+	public function compareValue($pass,$pass_confirm){
 
-	if ($password == $confirmPassword) {
-          // パスワードハッシュ化
-          $this->request->data['User']['password'] = Security::hash( $plain, 'sha512', true);
-          return true;
-        }
+		if(parent::compareValue($pass,$pass_confirm)){
+			$fieldname = key($pass);
+			$password=AuthComponent::password($this->data['User'][$fieldname]);
+			$this->data['User']['password']=$password;
+			return true;
+		}
+
+		return false;
 	}
+
+// 	public function compareValue($field1,$field2){
+
+// 		 // フィールド名とフォームへの入力値の配列から、キーであるフィールド名を取得
+//         $fieldname = key($pass);
+
+//         // 2つのフィールドの入力値を比較
+//         if($this->data[$this->name][$fieldname] === $this->data[$this->name][$pass_confirm]){
+
+//         	$this->data[$this->name][$fieldname];
+//         	//パスワードのハッシュ化
+//         	$password=AuthComponent::password($this->data[$this->name][$fieldname]);
+//         	$this->data['User']['password']=$password;
+
+//         	return true;
+//         }
+
+//         return false;
+// 	}
 
 
 

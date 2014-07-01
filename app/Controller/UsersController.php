@@ -79,6 +79,11 @@ class UsersController extends AppController{
 
 	}
 
+	public function completionAddUser(){
+		//$this->Session->setFlash("メールを送信しました。送信されたメールから本登録を行ってください");
+
+	}
+
 	public function edit($user_id=null){
 
 		$this->User->id=$user_id;
@@ -115,11 +120,12 @@ class UsersController extends AppController{
 
 		if($this->request->is('post')){
 			//$this->User->saveField( 'status', 0);
-			$password=AuthComponent::password($this->request->data['User']['password']);
-			$this->request->data['User']['password']=$password;
-			$this->User->save($this->request->data);
 
-			$this->Session->setFlash('登録が完了しました');
+// 			$password=AuthComponent::password($this->request->data['User']['password']);
+// 			$this->request->data['User']['password']=$password;
+			if($this->User->save($this->request->data)){
+				$this->setAction('completionAddUser');
+			}
 
 		}
 

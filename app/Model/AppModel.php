@@ -50,5 +50,18 @@ class AppModel extends Model {
 
 // 	);
 
+	public function compareValue($field1,$field2){
+
+		// フィールド名とフォームへの入力値の配列から、キーであるフィールド名を取得
+		$fieldname = key($field1);
+
+		// 2つのフィールドの入力値を比較
+		if($this->data[$this->name][$fieldname] == $this->data[$this->name][$field2]){
+
+			return true;
+		}
+
+		return false;
+	}
 
 }
