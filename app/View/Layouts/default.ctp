@@ -180,7 +180,7 @@ echo $this->fetch('script');
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 
-	<?php echo $this->fetch('script'); ?>
+	<!-- <?php echo $this->fetch('script'); ?> -->
 
 </body>
 </html>

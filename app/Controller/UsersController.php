@@ -119,11 +119,16 @@ class UsersController extends AppController{
 		$this->User->id=$userId;
 
 		if($this->request->is('post')){
-			//$this->User->saveField( 'status', 0);
 
+
+// 			$this->User->saveField('status',0);
+
+			//$this->User->status=0;
 // 			$password=AuthComponent::password($this->request->data['User']['password']);
 // 			$this->request->data['User']['password']=$password;
 			if($this->User->save($this->request->data)){
+				$this->User->saveField('status',0);
+
 				$this->setAction('completionAddUser');
 			}
 

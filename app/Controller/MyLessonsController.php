@@ -32,9 +32,9 @@ class MyLessonsController extends AppController{
 		//debug($this->LessonUsers->find('count',array('conditions'=>array('user_id'=>70))));
 
 		//ログインしているか取得
-		if ($auth->loggedIn()){
+// 		if ($auth->loggedIn()){
 
-		}
+// 		}
 
 		$learnLessonCount = $this->LessonUsers->find('count',array('conditions'=>array('user_id'=>70)));
 
@@ -74,6 +74,7 @@ class MyLessonsController extends AppController{
 
 			//受講しているレッスンの取得
 			//TODO joinして必要なLessonを取得する
+
 			$result=$this->LessonUsers->find('all',array('conditions'=>array('LessonUsers.user_id'=>70)));
 
 			//Debugger::dump($result);
@@ -88,7 +89,9 @@ class MyLessonsController extends AppController{
 
 			$conditions = array('Lesson.id'=>$lessonIds);
 
-			$this->paginate=array('Lesson'=>array('conditions'=>array('Lesson.id'=>$lessonIds),'limit'=>3,'order'=>array('name'=>'asc')));
+			$this->paginate=array('limit'=>2,'order'=>array('name'=>'asc'),'paramType' => 'querystring');
+			$result = $this->paginate('Lesson',$conditions);
+			//$this->paginate=array('Lesson'=>array('conditions'=>array('Lesson.id'=>$lessonIds),'limit'=>3,'order'=>array('name'=>'asc')));
 
 			//$result = $this->Lesson->find('all',array('conditions'=>$conditions));
 

@@ -81,7 +81,8 @@ $(function(){
 
 				<div class="form-group">
 					<div class="col-lg-10">
-						<button type="submit" class="btn btn-default">ユーザー登録</button>
+						<?php echo $this->Html->link('ユーザー登録 &raquo;',array('controller'=>'Users','action'=>'signup'),array('escape'=>false,'class' => 'btn btn-default','role' => 'button')); ?>
+
 					</div>
 				</div>
 

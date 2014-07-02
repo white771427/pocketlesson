@@ -87,8 +87,10 @@ class User extends AppModel {
 			return false;
 		}
 		// 更新日時をハッシュ化
-		//return Security::hash( $this->field('modified'), 'md5', true);
-		return Security::hash(localtime(time()),'md5',true);
+		return Security::hash( $this->field('modified'), 'md5', true);
+
+// 		return Security::hash( $this->field('modified'), 'md5', true);
+// 		return Security::hash(localtime(time()),'md5',true);
 	}
 
 }
