@@ -16,6 +16,10 @@
 				<!--  <small>Subtext for header</small>-->
 				<p class="lead">いつでもどこでも気軽に3分レッスン</p>
 				<p class="lead">年配の学習や趣味を見つける</p>
+				<p class="lead">特技をふやす。自信をつけさせる</p>
+				<p class="lead">ある一定のレベルになれば、解放させる</p>
+				<p class="lead">参考にせよSnapguide,treehouse</p>
+				<p class="lead">http://blog.btrax.com/jp/2013/01/08/6startups-would-be-famous-in-united-america/</p>
 
 			</div>
 		</div>
