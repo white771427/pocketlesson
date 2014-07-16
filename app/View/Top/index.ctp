@@ -20,7 +20,8 @@
 				<p class="lead">ある一定のレベルになれば、解放させる</p>
 				<p class="lead">参考にせよSnapguide,treehouse</p>
 				<p class="lead">http://blog.btrax.com/jp/2013/01/08/6startups-would-be-famous-in-united-america/</p>
-
+				<p class="lead">自分の特技でもなんでも教えられるやつをupする。Snapguideを参考に簡単に</p>
+				<p class="lead">知りたくもないない情報を勝手におくりつける</p>
 			</div>
 		</div>
 	</div>
